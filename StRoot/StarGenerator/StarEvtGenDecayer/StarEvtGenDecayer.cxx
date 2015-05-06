@@ -69,38 +69,28 @@ StarEvtGenDecayer::StarEvtGenDecayer(EvtGen &Event, int Nevent, EvtId ParentID, 
 }
 void StarEvtGenDecayer::Make_Decay(EvtGen &Event, int Nevent, EvtId ParentID, EvtId DaughterID, TLorentzVector mom)
 {
-
    cout << "Number of Evet    " << Nevent << endl;
    double e = mom.E();
    double px = mom.Px();
    double py = mom.Py();
    double pz = mom.Pz();
    cout << e << "  " << px << py << pz << endl;
-// TClonesArray *_array;
 
    EvtVector4R p_init(EvtPDL::getMass(ParentID), px, py, pz);
 
-   // return;
    for (int iEvent = 0; iEvent < Nevent; iEvent++)
    {
       std::vector<TParticle *> Daughter_ve;
-      //   TParticle * daughter;
       EvtParticle* root_part = EvtParticleFactory::particleFactory(ParentID, p_init);
       root_part->setVectorSpinDensity();
       Event.generateDecay(root_part);
       EvtParticle *p = root_part;
       while (p != 0)
       {
-
-
          TParticle * daughter =      Save_daughter(p);
 
-         // cout<< "  "<<iEvent<< "  "<< p->getId()<<endl;
-
          Daughter_ve.push_back(daughter);
-         // cout<< daughter->Pt()<<endl;
          p = p->nextIter(root_part);
-
       }
 
       cout << "  vctor size" << Daughter_ve.size() << "  " << endl;
