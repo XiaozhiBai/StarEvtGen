@@ -1,0 +1,18 @@
+#
+#
+Decay D0
+#
+1.000 K*-     e+      nu_e                            PHOTOS   ISGW2; #[Reconstructed PDG2011]
+#0.202568 K*-     e+      nu_e                            PHOTOS   ISGW2; #[Reconstructed PDG2011]
+#0.33139 K-      e+      nu_e                            PHOTOS   ISGW2; #[Reconstructed PDG2011]
+#0.00709455 K_1-    e+      nu_e                            PHOTOS   ISGW2; #[Reconstructed PDG2011]
+#0.0128309 K_2*-   e+      nu_e                            PHOTOS   ISGW2; #[Reconstructed PDG2011]
+#0.026978 pi-     e+      nu_e                            PHOTOS   ISGW2; #[Reconstructed PDG2011]
+#0.0177364 rho-    e+      nu_e                            PHOTOS   ISGW2; #[Reconstructed PDG2011]
+#0.252043 anti-K0 pi-     e+      nu_e                    PHOTOS   PHSP; #[Reconstructed PDG2011]
+#0.149359 K-      pi0     e+      nu_e                    PHOTOS   PHSP; #[Reconstructed PDG2011]
+
+#
+Enddecay
+
+End
