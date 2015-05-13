@@ -4,7 +4,6 @@
   5/1/2015 by Xiaozhi
 
   ----------------*/
-
 #ifndef StarEvtGenDecayer__h
 #define StarEvtGenDecayer__h  
 
@@ -36,7 +35,6 @@
 #include <TH1F.h>
 #include"TParticle.h"
 #include"TLorentzVector.h"
-
 #include "TVirtualMCDecayer.h"
 #include "TClonesArray.h"
 #include "TString.h"
@@ -44,13 +42,10 @@
 
 class StarEvtGenDecayer : public TVirtualMCDecayer
 {
-
  public:
   StarEvtGenDecayer();
-  StarEvtGenDecayer( EvtGen &EventGenerator);
-  StarEvtGenDecayer(EvtGen &Event,int Nevent,EvtId ParentID,EvtId DaughterID); 
-  ~StarEvtGenDecayer() {};     
-
+  ~StarEvtGenDecayer();     
+  
   void Init();
   void Decay( Int_t pdg, TLorentzVector *p=0 );
   Int_t ImportParticles(  TClonesArray *array = 0 );
@@ -60,16 +55,14 @@ class StarEvtGenDecayer : public TVirtualMCDecayer
   Float_t GetLifetime( Int_t pdgid );
   void ReadDecayTable();
   //---------- added by xiaozhi-----------
-  void Input_DecayTree(EvtGen &EventGenerator,TString Dec_file1,TString DEC_file2);
-  void Make_Decay(EvtGen &Event,int Nevent,EvtId ParentID,EvtId DaughterID,TLorentzVector mom);
-  TParticle * Save_daughter(EvtParticle* p);
-
+ 
+  void Input_DecayTree(TString Dec_file1);
  private:
   int pdg; 
   EvtGen *mEvent;
   int mDebug;
+  EvtParticle *mParticle;
   TClonesArray*        mDecayDaughter;
-  
 };     
 #endif
 
