@@ -3,7 +3,7 @@
 
    \brief STAR wrapper for EvtGen Decayer
 
-   Authors: Xiaozhi Bai (xiaozhi@lbl.gov),
+   Authors: Xiaozhi Bai (xiaozhi@uic.edu),
             Mustafa Mustafa (mmustafa@lbl.gov),
 */
 
