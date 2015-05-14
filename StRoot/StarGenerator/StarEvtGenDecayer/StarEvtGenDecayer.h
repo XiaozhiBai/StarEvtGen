@@ -60,8 +60,8 @@ class StarEvtGenDecayer : public TVirtualMCDecayer
 
    void Input_DecayTree(TString Dec_file1);
   private:
+   EvtGen *mEvtGen;
    int pdg;
-   EvtGen *mEvent;
    int mDebug;
    EvtParticle *mParticle;
    TClonesArray*        mDecayDaughter;

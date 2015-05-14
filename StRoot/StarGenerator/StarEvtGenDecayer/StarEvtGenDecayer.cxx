@@ -35,7 +35,7 @@
 #include "StarEvtGenDecayer.h"
 using namespace std;
 
-StarEvtGenDecayer::StarEvtGenDecayer()
+StarEvtGenDecayer::StarEvtGenDecayer() : mEvtGen(NULL)
 {
    //
 }
@@ -56,12 +56,11 @@ void StarEvtGenDecayer::Init()
 }
 void StarEvtGenDecayer::Decay(int pdgid, TLorentzVector*_p)
 {
-
    EvtVector4R p_init(_p->E(), _p->Px(), _p->Py(), _p->Pz());
    static EvtId ParentID = EvtPDL::evtIdFromLundKC(pdgid);
    EvtParticle* root_part = EvtParticleFactory::particleFactory(ParentID, p_init);
    root_part->setDiagonalSpinDensity();
-   mEvent->generateDecay(root_part);
+   mEvtGen->generateDecay(root_part);
    mParticle = root_part;
    return ;
 }
