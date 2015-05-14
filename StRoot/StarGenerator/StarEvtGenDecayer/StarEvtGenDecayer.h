@@ -1,9 +1,12 @@
-  /*
-   * This is just a test macro for the eventGen
+/**
+   \class StarEvtGenDecayer
 
-  5/1/2015 by Xiaozhi
+   \brief STAR wrapper for EvtGen Decayer
 
-  ----------------*/
+   Authors: Xiaozhi Bai (xiaozhi@lbl.gov),
+            Mustafa Mustafa (mmustafa@lbl.gov),
+*/
+
 #ifndef StarEvtGenDecayer__h
 #define StarEvtGenDecayer__h  
 

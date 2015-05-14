@@ -1,12 +1,3 @@
-/*/-----------------
-// commit
-
-  This class is for the eventGen Decay
-
-  Auther:  Xiaozhi 5/1/2015
-
-  ----------------*/
-
 #include "EvtGen/EvtGen.hh"
 
 #include "EvtGenBase/EvtParticle.hh"
