@@ -8,7 +8,7 @@
 */
 
 #ifndef StarEvtGenDecayer__h
-#define StarEvtGenDecayer__h  
+#define StarEvtGenDecayer__h
 
 #include "EvtGen/EvtGen.hh"
 
@@ -45,28 +45,27 @@
 
 class StarEvtGenDecayer : public TVirtualMCDecayer
 {
- public:
-  StarEvtGenDecayer();
-  ~StarEvtGenDecayer();     
-  
-  void Init();
-  void Decay( Int_t pdg, TLorentzVector *p=0 );
-  Int_t ImportParticles(  TClonesArray *array = 0 );
-  void SetForceDecay( Int_t type );
-  void ForceDecay();
-  Float_t GetPartialBranchingRatio( Int_t pdgid );
-  Float_t GetLifetime( Int_t pdgid );
-  void ReadDecayTable();
-  //---------- added by xiaozhi-----------
- 
-  void Input_DecayTree(TString Dec_file1);
- private:
-  int pdg; 
-  EvtGen *mEvent;
-  int mDebug;
-  EvtParticle *mParticle;
-  TClonesArray*        mDecayDaughter;
-};     
+  public:
+   StarEvtGenDecayer();
+   ~StarEvtGenDecayer();
+
+   void Init();
+   void Decay(Int_t pdg, TLorentzVector *p = 0);
+   Int_t ImportParticles(TClonesArray *array = 0);
+   void SetForceDecay(Int_t type);
+   void ForceDecay();
+   Float_t GetPartialBranchingRatio(Int_t pdgid);
+   Float_t GetLifetime(Int_t pdgid);
+   void ReadDecayTable();
+
+   void Input_DecayTree(TString Dec_file1);
+  private:
+   int pdg;
+   EvtGen *mEvent;
+   int mDebug;
+   EvtParticle *mParticle;
+   TClonesArray*        mDecayDaughter;
+};
 #endif
 
 

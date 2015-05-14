@@ -35,71 +35,82 @@
 #include "StarEvtGenDecayer.h"
 using namespace std;
 
-StarEvtGenDecayer::StarEvtGenDecayer(){
-  //
+StarEvtGenDecayer::StarEvtGenDecayer()
+{
+   //
 }
-StarEvtGenDecayer::~StarEvtGenDecayer(){
-  //
+StarEvtGenDecayer::~StarEvtGenDecayer()
+{
+   //
 }
 
 void StarEvtGenDecayer::Input_DecayTree(TString Decay_Table)
 {
-  // std::cout<<"Decay_Table!!!!!!!!!!!!!!!!!!!!!!!!!" <<" "<<Decay_Table<<std::endl;
-  mEvent->readUDecay(Decay_Table); 
+   // std::cout<<"Decay_Table!!!!!!!!!!!!!!!!!!!!!!!!!" <<" "<<Decay_Table<<std::endl;
+   mEvent->readUDecay(Decay_Table);
    return;
 }
-void StarEvtGenDecayer::Init(){
-  std::cout << " Init Done" <<std::endl;
+void StarEvtGenDecayer::Init()
+{
+   std::cout << " Init Done" << std::endl;
 }
-void StarEvtGenDecayer::Decay(int pdgid, TLorentzVector*_p){
+void StarEvtGenDecayer::Decay(int pdgid, TLorentzVector*_p)
+{
 
-  EvtVector4R p_init(_p->E(),_p->Px(),_p->Py(),_p->Pz());
-  static EvtId ParentID=EvtPDL::evtIdFromLundKC(pdgid);
-  EvtParticle* root_part = EvtParticleFactory::particleFactory(ParentID, p_init);
-  root_part->setDiagonalSpinDensity();   
-  mEvent->generateDecay(root_part);
-  mParticle = root_part;
-  return ; 
+   EvtVector4R p_init(_p->E(), _p->Px(), _p->Py(), _p->Pz());
+   static EvtId ParentID = EvtPDL::evtIdFromLundKC(pdgid);
+   EvtParticle* root_part = EvtParticleFactory::particleFactory(ParentID, p_init);
+   root_part->setDiagonalSpinDensity();
+   mEvent->generateDecay(root_part);
+   mParticle = root_part;
+   return ;
 }
-Int_t StarEvtGenDecayer::ImportParticles(TClonesArray *_array){
+Int_t StarEvtGenDecayer::ImportParticles(TClonesArray *_array)
+{
    //save Decay daughter
-  assert(_array);
-  TClonesArray &array = *_array;
-  array.Clear();
-  Int_t nparts = 0;
-  for(Int_t i=0; i<mParticle->getNDaug();i++ ){
-      new(array[nparts++]) TParticle (
-				      EvtPDL::getLundKC(mParticle->getDaug(i)->getId()),
-				      -999,
-				      EvtPDL::getLundKC(mParticle->getDaug(i)->getParent()->getId()),
-				      -999,
-				      -999,
-				      -999,
-				      mParticle->getDaug(i)->getP4Lab().get(1),
-				      mParticle->getDaug(i)->getP4Lab().get(2),
-				      mParticle->getDaug(i)->getP4Lab().get(3),
-				      mParticle->getDaug(i)->getP4Lab().get(0),
-				      mParticle->getDaug(i)->get4Pos().get(1),
-				      mParticle->getDaug(i)->get4Pos().get(2),
-				      mParticle->getDaug(i)->get4Pos().get(3),
-				      mParticle->getDaug(i)->get4Pos().get(0));
-  }
-  mParticle->deleteTree();
-  return nparts;
+   assert(_array);
+   TClonesArray &array = *_array;
+   array.Clear();
+   Int_t nparts = 0;
+   for (Int_t i = 0; i < mParticle->getNDaug(); i++)
+   {
+      new(array[nparts++]) TParticle(
+         EvtPDL::getLundKC(mParticle->getDaug(i)->getId()),
+         -999,
+         EvtPDL::getLundKC(mParticle->getDaug(i)->getParent()->getId()),
+         -999,
+         -999,
+         -999,
+         mParticle->getDaug(i)->getP4Lab().get(1),
+         mParticle->getDaug(i)->getP4Lab().get(2),
+         mParticle->getDaug(i)->getP4Lab().get(3),
+         mParticle->getDaug(i)->getP4Lab().get(0),
+         mParticle->getDaug(i)->get4Pos().get(1),
+         mParticle->getDaug(i)->get4Pos().get(2),
+         mParticle->getDaug(i)->get4Pos().get(3),
+         mParticle->getDaug(i)->get4Pos().get(0));
+   }
+   mParticle->deleteTree();
+   return nparts;
 }
-void StarEvtGenDecayer::SetForceDecay(Int_t type){
-  assert(0);
+void StarEvtGenDecayer::SetForceDecay(Int_t type)
+{
+   assert(0);
 }
 
-void StarEvtGenDecayer::ForceDecay(){
-  assert(0);
+void StarEvtGenDecayer::ForceDecay()
+{
+   assert(0);
 }
-Float_t StarEvtGenDecayer::GetPartialBranchingRatio(Int_t ipdg){
-  assert(0);
+Float_t StarEvtGenDecayer::GetPartialBranchingRatio(Int_t ipdg)
+{
+   assert(0);
 }
-void StarEvtGenDecayer::ReadDecayTable(){
-  assert(0);
+void StarEvtGenDecayer::ReadDecayTable()
+{
+   assert(0);
 }
-Float_t StarEvtGenDecayer::GetLifetime(Int_t pdg){
-  return 1.0;
+Float_t StarEvtGenDecayer::GetLifetime(Int_t pdg)
+{
+   return 1.0;
 }
