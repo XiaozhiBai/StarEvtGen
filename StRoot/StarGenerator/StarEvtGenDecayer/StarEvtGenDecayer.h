@@ -67,8 +67,3 @@ class StarEvtGenDecayer : public TVirtualMCDecayer
    TClonesArray*        mDecayDaughter;
 };
 #endif
-
-
-
-
-

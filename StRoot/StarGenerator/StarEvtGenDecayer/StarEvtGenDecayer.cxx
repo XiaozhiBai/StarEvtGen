@@ -37,22 +37,21 @@ using namespace std;
 
 StarEvtGenDecayer::StarEvtGenDecayer() : mEvtGen(NULL)
 {
-   //
 }
+
 StarEvtGenDecayer::~StarEvtGenDecayer()
 {
-   //
 }
 
 void StarEvtGenDecayer::Input_DecayTree(TString Decay_Table)
 {
-   // std::cout<<"Decay_Table!!!!!!!!!!!!!!!!!!!!!!!!!" <<" "<<Decay_Table<<std::endl;
-   mEvent->readUDecay(Decay_Table);
+   mEvtGen->readUDecay(Decay_Table);
+
    return;
 }
 void StarEvtGenDecayer::Init()
 {
-   std::cout << " Init Done" << std::endl;
+   LOG_INFO << " Init Done" << endm;
 }
 void StarEvtGenDecayer::Decay(int pdgid, TLorentzVector*_p)
 {
