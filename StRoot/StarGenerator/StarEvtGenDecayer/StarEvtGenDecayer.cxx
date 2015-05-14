@@ -1,19 +1,16 @@
 #include "EvtGen/EvtGen.hh"
 
+#include "EvtGenBase/EvtStdlibRandomEngine.hh"
+#include "EvtGenBase/EvtRandom.hh"
 #include "EvtGenBase/EvtParticle.hh"
+#include "EvtGenBase/EvtAbsRadCorr.hh"
+#include "EvtGenExternal/EvtExternalGenList.hh"
 #include "EvtGenBase/EvtParticleFactory.hh"
 #include "EvtGenBase/EvtPatches.hh"
 #include "EvtGenBase/EvtPDL.hh"
-#include "EvtGenBase/EvtRandom.hh"
 #include "EvtGenBase/EvtReport.hh"
 #include "EvtGenBase/EvtHepMCEvent.hh"
-#include "EvtGenBase/EvtStdlibRandomEngine.hh"
-#include "EvtGenBase/EvtAbsRadCorr.hh"
 #include "EvtGenBase/EvtDecayBase.hh"
-
-#ifdef EVTGEN_EXTERNAL
-#include "EvtGenExternal/EvtExternalGenList.hh"
-#endif
 
 #include <iostream>
 #include <string>
@@ -35,20 +32,33 @@
 #include "StarEvtGenDecayer.h"
 using namespace std;
 
-StarEvtGenDecayer::StarEvtGenDecayer() : mEvtGen(NULL)
+StarEvtGenDecayer::StarEvtGenDecayer(EvtGen* evtGen): mEvtGenRandomEngine(NULL), mEvtGen(NULL), mOwner(false)
 {
+  if(mEvtGen) return; // trust the user to initialize evtGen
+
+  mOwner = true;
+
+  mEvtGenRandomEngine = new EvtStdlibRandomEngine();
+  EvtRandom::setRandomEngine((EvtRandomEngine*)mEvtGenRandomEngine);
+  EvtExternalGenList genList;
+
+  EvtAbsRadCorr* radCorrEngine = genList.getPhotosModel();
+  std::list<EvtDecayBase*> extraModels = genList.getListOfModels();
+  
+  // the hardcoded paths are temporary
+  mEvtGen = new EvtGen("../../DECAY_2010.DEC","../../evt.pdl", (EvtRandomEngine*)mEvtGenRandomEngine,radCorrEngine, &extraModels);
+
 }
 
 StarEvtGenDecayer::~StarEvtGenDecayer()
 {
+  if(mOwner)
+  {
+    delete mEvtGen;
+    delete mEvtGenRandomEngine;
+  }
 }
 
-void StarEvtGenDecayer::Input_DecayTree(TString Decay_Table)
-{
-   mEvtGen->readUDecay(Decay_Table);
-
-   return;
-}
 void StarEvtGenDecayer::Init()
 {
    LOG_INFO << " Init Done" << endm;

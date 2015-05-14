@@ -4,7 +4,7 @@
    \brief STAR wrapper for EvtGen Decayer
 
    Authors: Xiaozhi Bai (xiaozhi@uic.edu),
-            Mustafa Mustafa (mmustafa@lbl.gov),
+            Mustafa Mustafa (mmustafa@lbl.gov)
 */
 
 #ifndef StarEvtGenDecayer__h
@@ -14,6 +14,7 @@
 #include "TString.h"
 
 class EvtGen;
+class EvtStdlibRandomEngine;
 class EvtParticle;
 class TLorentzVector;
 class TClonesArray;
@@ -21,7 +22,7 @@ class TClonesArray;
 class StarEvtGenDecayer : public TVirtualMCDecayer
 {
   public:
-   StarEvtGenDecayer();
+   StarEvtGenDecayer(EvtGen* evtGen = NULL);
    virtual ~StarEvtGenDecayer();
 
    virtual void Init();
@@ -33,13 +34,17 @@ class StarEvtGenDecayer : public TVirtualMCDecayer
    virtual Float_t GetLifetime(Int_t pdgid);
    virtual void ReadDecayTable();
 
+   void setDecayTable(TString decayTable);
 
-   void Input_DecayTree(TString Dec_file1);
   private:
-   EvtGen *mEvtGen;
+   EvtStdlibRandomEngine* mEvtGenRandomEngine;
+   EvtGen* mEvtGen;
+   bool   mOwner;
    int pdg;
    int mDebug;
    EvtParticle *mParticle;
    TClonesArray*        mDecayDaughter;
 };
+
+inline void StarEvtGenDecayer::setDecayTable(TString decayTable) { mEvtGen->readUDecay(decayTable); }
 #endif
