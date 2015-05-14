@@ -10,38 +10,13 @@
 #ifndef StarEvtGenDecayer__h
 #define StarEvtGenDecayer__h
 
-#include "EvtGen/EvtGen.hh"
-
-#include "EvtGenBase/EvtParticle.hh"
-#include "EvtGenBase/EvtParticleFactory.hh"
-#include "EvtGenBase/EvtPatches.hh"
-#include "EvtGenBase/EvtPDL.hh"
-#include "EvtGenBase/EvtRandom.hh"
-#include "EvtGenBase/EvtReport.hh"
-#include "EvtGenBase/EvtHepMCEvent.hh"
-#include "EvtGenBase/EvtStdlibRandomEngine.hh"
-#include "EvtGenBase/EvtAbsRadCorr.hh"
-#include "EvtGenBase/EvtDecayBase.hh"
-
-#ifdef EVTGEN_EXTERNAL
-#include "EvtGenExternal/EvtExternalGenList.hh"
-#endif
-
-#include <iostream>
-#include <string>
-#include <list>
-#include <cmath>
-#include <vector>
-#include <fstream>
-
-#include <TFile.h>
-#include <TH1F.h>
-#include"TParticle.h"
-#include"TLorentzVector.h"
 #include "TVirtualMCDecayer.h"
-#include "TClonesArray.h"
 #include "TString.h"
-#include "vector"
+
+class EvtGen;
+class EvtParticle;
+class TLorentzVector;
+class TClonesArray;
 
 class StarEvtGenDecayer : public TVirtualMCDecayer
 {
