@@ -63,11 +63,11 @@ void StarEvtGenDecayer::Decay(int pdgid, TLorentzVector*_p)
    mParticle = root_part;
    return ;
 }
-Int_t StarEvtGenDecayer::ImportParticles(TClonesArray *_array)
+Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
 {
    //save Decay daughter
-   assert(_array);
-   TClonesArray &array = *_array;
+   assert(particles);
+   TClonesArray &array = *particles;
    array.Clear();
    Int_t nparts = 0;
    for (Int_t i = 0; i < mParticle->getNDaug(); i++)
@@ -100,7 +100,7 @@ void StarEvtGenDecayer::ForceDecay()
 {
    assert(0);
 }
-Float_t StarEvtGenDecayer::GetPartialBranchingRatio(Int_t ipdg)
+Float_t StarEvtGenDecayer::GetPartialBranchingRatio(Int_t ipart)
 {
    assert(0);
 }

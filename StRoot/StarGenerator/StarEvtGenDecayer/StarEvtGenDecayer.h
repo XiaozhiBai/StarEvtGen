@@ -47,16 +47,17 @@ class StarEvtGenDecayer : public TVirtualMCDecayer
 {
   public:
    StarEvtGenDecayer();
-   ~StarEvtGenDecayer();
+   virtual ~StarEvtGenDecayer();
 
-   void Init();
-   void Decay(Int_t pdg, TLorentzVector *p = 0);
-   Int_t ImportParticles(TClonesArray *array = 0);
-   void SetForceDecay(Int_t type);
-   void ForceDecay();
-   Float_t GetPartialBranchingRatio(Int_t pdgid);
-   Float_t GetLifetime(Int_t pdgid);
-   void ReadDecayTable();
+   virtual void Init();
+   virtual void Decay(Int_t pdg, TLorentzVector* p);
+   virtual Int_t ImportParticles(TClonesArray* particles);
+   virtual void SetForceDecay(Int_t type);
+   virtual void ForceDecay();
+   virtual Float_t GetPartialBranchingRatio(Int_t ipart);
+   virtual Float_t GetLifetime(Int_t pdgid);
+   virtual void ReadDecayTable();
+
 
    void Input_DecayTree(TString Dec_file1);
   private:
