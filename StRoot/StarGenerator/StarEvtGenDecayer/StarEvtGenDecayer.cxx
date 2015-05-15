@@ -30,7 +30,7 @@
 #include "StarEvtGenDecayer.h"
 using namespace std;
 
-StarEvtGenDecayer::StarEvtGenDecayer(EvtGen* evtGen): mEvtGenRandomEngine(NULL), mEvtGen(NULL), mOwner(false)
+StarEvtGenDecayer::StarEvtGenDecayer(EvtGen* evtGen): mEvtGenRandomEngine(NULL), mEvtGen(NULL), mParticle(NULL), mOwner(false)
 {
   if(mEvtGen) return; // trust that mEvtGen is properly initialized by the user
 

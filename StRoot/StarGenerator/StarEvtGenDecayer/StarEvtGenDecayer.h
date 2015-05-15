@@ -39,11 +39,8 @@ class StarEvtGenDecayer : public TVirtualMCDecayer
   private:
    EvtStdlibRandomEngine* mEvtGenRandomEngine;
    EvtGen* mEvtGen;
+   EvtParticle* mParticle;
    bool   mOwner;
-   int pdg;
-   int mDebug;
-   EvtParticle *mParticle;
-   TClonesArray*        mDecayDaughter;
 };
 
 inline void StarEvtGenDecayer::setDecayTable(TString decayTable) { mEvtGen->readUDecay(decayTable); }
