@@ -74,7 +74,7 @@ Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
    array.Clear();
 
    Int_t nparts = 0;
-   for (Int_t i = 0; i < mParticle->getNDaug(); i++)
+   for (size_t i = 0; i < mParticle->getNDaug(); i++)
    {
      // Need to check with Jason what units to return for the position. 
      // also the status and mothers codes
@@ -109,6 +109,7 @@ void StarEvtGenDecayer::ForceDecay()
 Float_t StarEvtGenDecayer::GetPartialBranchingRatio(Int_t ipart)
 {
    LOG_ERROR << "StarEvtGenDecayer::GetPartialBranchingRatio method is not implemented in this class" <<endm;
+   return 1.0;
 }
 void StarEvtGenDecayer::ReadDecayTable()
 {
