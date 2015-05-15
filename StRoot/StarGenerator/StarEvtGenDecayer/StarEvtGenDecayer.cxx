@@ -14,6 +14,7 @@
 #include "EvtGenBase/EvtId.hh"
 #include "EvtGenBase/EvtDecayBase.hh"
 
+#include "StMessMgr.h"
 #include "StarEvtGenDecayer.h"
 
 StarEvtGenDecayer::StarEvtGenDecayer(EvtGen* evtGen): mEvtGenRandomEngine(NULL), mEvtGen(NULL), mParticle(NULL), mOwner(false)
