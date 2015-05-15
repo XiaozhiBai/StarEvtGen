@@ -41,6 +41,8 @@ StarEvtGenDecayer::~StarEvtGenDecayer()
     delete mEvtGen;
     delete mEvtGenRandomEngine;
   }
+
+  mParticle->deleteTree();
 }
 
 void StarEvtGenDecayer::Init()
@@ -59,25 +61,25 @@ void StarEvtGenDecayer::Decay(int pdgId, TLorentzVector*_p)
 
 Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
 {
-   //save Decay daughter
    assert(particles);
    TClonesArray &array = *particles;
    array.Clear();
+
    Int_t nparts = 0;
    for (Int_t i = 0; i < mParticle->getNDaug(); i++)
    {
       new(array[nparts++]) TParticle(
-         EvtPDL::getLundKC(mParticle->getDaug(i)->getId()),
-         -999,
-         EvtPDL::getLundKC(mParticle->getDaug(i)->getParent()->getId()),
+         EvtPDL::getLundKC(mParticle->getDaug(i)->getId()), // PDG ID
          -999,
          -999,
          -999,
-         mParticle->getDaug(i)->getP4Lab().get(1),
+         -999,
+         -999,
+         mParticle->getDaug(i)->getP4Lab().get(1), // GeV/c
          mParticle->getDaug(i)->getP4Lab().get(2),
          mParticle->getDaug(i)->getP4Lab().get(3),
          mParticle->getDaug(i)->getP4Lab().get(0),
-         mParticle->getDaug(i)->get4Pos().get(1),
+         mParticle->getDaug(i)->get4Pos().get(1), // mm
          mParticle->getDaug(i)->get4Pos().get(2),
          mParticle->getDaug(i)->get4Pos().get(3),
          mParticle->getDaug(i)->get4Pos().get(0));
