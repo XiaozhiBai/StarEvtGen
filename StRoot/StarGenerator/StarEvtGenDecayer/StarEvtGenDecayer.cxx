@@ -81,7 +81,8 @@ Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
          mParticle->getDaug(i)->get4Pos().get(3),
          mParticle->getDaug(i)->get4Pos().get(0));
    }
-   mParticle->deleteTree();
+
+   mParticle->deleteTree(); // this deletes the daughter and mParticle itself (the object commits suicide)
    return nparts;
 }
 void StarEvtGenDecayer::SetForceDecay(Int_t type)
