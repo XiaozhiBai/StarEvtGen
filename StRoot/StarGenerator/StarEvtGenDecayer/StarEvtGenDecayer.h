@@ -14,10 +14,10 @@
 #include "TString.h"
 #include "EvtGen/EvtGen.hh"
 
-class EvtStdlibRandomEngine;
-class EvtParticle;
 class TLorentzVector;
 class TClonesArray;
+class EvtStdlibRandomEngine;
+class EvtParticle;
 
 class StarEvtGenDecayer : public TVirtualMCDecayer
 {

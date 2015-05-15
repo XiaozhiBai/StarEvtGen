@@ -1,34 +1,19 @@
+#include <list>
+
+#include "TParticle.h"
+#include "TLorentzVector.h"
+#include "TClonesArray.h"
+
 #include "EvtGenBase/EvtStdlibRandomEngine.hh"
 #include "EvtGenBase/EvtRandom.hh"
 #include "EvtGenBase/EvtParticle.hh"
 #include "EvtGenBase/EvtAbsRadCorr.hh"
 #include "EvtGenExternal/EvtExternalGenList.hh"
 #include "EvtGenBase/EvtParticleFactory.hh"
-#include "EvtGenBase/EvtPatches.hh"
 #include "EvtGenBase/EvtPDL.hh"
-#include "EvtGenBase/EvtReport.hh"
-#include "EvtGenBase/EvtHepMCEvent.hh"
 #include "EvtGenBase/EvtDecayBase.hh"
 
-#include <iostream>
-#include <string>
-#include <list>
-#include <cmath>
-#include <vector>
-#include <fstream>
-
-#include <TFile.h>
-#include <TH1F.h>
-#include"TParticle.h"
-#include"TLorentzVector.h"
-#include<TClonesArray.h>
-#include "TVirtualMCDecayer.h"
-#include "TClonesArray.h"
-#include "TString.h"
-#include "vector"
-
 #include "StarEvtGenDecayer.h"
-using namespace std;
 
 StarEvtGenDecayer::StarEvtGenDecayer(EvtGen* evtGen): mEvtGenRandomEngine(NULL), mEvtGen(NULL), mParticle(NULL), mOwner(false)
 {
