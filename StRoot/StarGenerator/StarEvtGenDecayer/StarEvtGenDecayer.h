@@ -26,7 +26,7 @@ class StarEvtGenDecayer : public TVirtualMCDecayer
    virtual ~StarEvtGenDecayer();
 
    virtual void Init();
-   virtual void Decay(Int_t pdg, TLorentzVector* p);
+   virtual void Decay(Int_t pdgId, TLorentzVector* p);
    virtual Int_t ImportParticles(TClonesArray* particles);
    virtual void SetForceDecay(Int_t type);
    virtual void ForceDecay();

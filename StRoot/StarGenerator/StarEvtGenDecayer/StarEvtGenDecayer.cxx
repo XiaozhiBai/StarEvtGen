@@ -11,6 +11,7 @@
 #include "EvtGenExternal/EvtExternalGenList.hh"
 #include "EvtGenBase/EvtParticleFactory.hh"
 #include "EvtGenBase/EvtPDL.hh"
+#include "EvtGenBase/EvtId.hh"
 #include "EvtGenBase/EvtDecayBase.hh"
 
 #include "StarEvtGenDecayer.h"
@@ -46,16 +47,16 @@ void StarEvtGenDecayer::Init()
 {
    LOG_INFO << " Init Done" << endm;
 }
-void StarEvtGenDecayer::Decay(int pdgid, TLorentzVector*_p)
+void StarEvtGenDecayer::Decay(int pdgId, TLorentzVector*_p)
 {
    EvtVector4R p_init(_p->E(), _p->Px(), _p->Py(), _p->Pz());
-   static EvtId ParentID = EvtPDL::evtIdFromLundKC(pdgid);
-   EvtParticle* root_part = EvtParticleFactory::particleFactory(ParentID, p_init);
-   root_part->setDiagonalSpinDensity();
-   mEvtGen->generateDecay(root_part);
-   mParticle = root_part;
-   return ;
+
+   EvtId parentID = EvtPDL::evtIdFromLundKC(pdgId);
+   mParticle = EvtParticleFactory::particleFactory(parentID, p_init);
+   mParticle->setDiagonalSpinDensity();
+   mEvtGen->generateDecay(mParticle);
 }
+
 Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
 {
    //save Decay daughter
