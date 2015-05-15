@@ -61,7 +61,12 @@ void StarEvtGenDecayer::Decay(int pdgId, TLorentzVector*_p)
 
 Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
 {
-   assert(particles);
+   if(!particles)
+   {
+     LOG_FATAL << "particles TClonesArray doesn't exist" <<endm;
+     return -1;
+   }
+   
    TClonesArray &array = *particles;
    array.Clear();
 
