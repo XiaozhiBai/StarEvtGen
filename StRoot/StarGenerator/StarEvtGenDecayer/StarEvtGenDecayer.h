@@ -10,6 +10,8 @@
 #ifndef StarEvtGenDecayer__h
 #define StarEvtGenDecayer__h
 
+#include <cstddef>
+
 #include "TVirtualMCDecayer.h"
 #include "TString.h"
 #include "EvtGen/EvtGen.hh"

@@ -55,6 +55,8 @@ void StarEvtGenDecayer::Decay(int pdgId, TLorentzVector*_p)
    EvtVector4R p_init(_p->E(), _p->Px(), _p->Py(), _p->Pz());
 
    EvtId parentID = EvtPDL::evtIdFromLundKC(pdgId);
+
+   if(mParticle) mParticle->deleteTree(); // this deletes the daughter and mParticle itself (the object commits suicide)
    mParticle = EvtParticleFactory::particleFactory(parentID, p_init);
    mParticle->setDiagonalSpinDensity();
    mEvtGen->generateDecay(mParticle);
@@ -93,7 +95,6 @@ Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
          mParticle->getDaug(i)->get4Pos().get(0));
    }
 
-   mParticle->deleteTree(); // this deletes the daughter and mParticle itself (the object commits suicide)
    return nparts;
 }
 void StarEvtGenDecayer::SetForceDecay(Int_t type)
