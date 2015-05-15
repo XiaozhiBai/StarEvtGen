@@ -1,5 +1,3 @@
-#include "EvtGen/EvtGen.hh"
-
 #include "EvtGenBase/EvtStdlibRandomEngine.hh"
 #include "EvtGenBase/EvtRandom.hh"
 #include "EvtGenBase/EvtParticle.hh"
@@ -34,7 +32,7 @@ using namespace std;
 
 StarEvtGenDecayer::StarEvtGenDecayer(EvtGen* evtGen): mEvtGenRandomEngine(NULL), mEvtGen(NULL), mOwner(false)
 {
-  if(mEvtGen) return; // trust the user to initialize evtGen
+  if(mEvtGen) return; // trust that mEvtGen is properly initialized by the user
 
   mOwner = true;
 

@@ -12,8 +12,8 @@
 
 #include "TVirtualMCDecayer.h"
 #include "TString.h"
+#include "EvtGen/EvtGen.hh"
 
-class EvtGen;
 class EvtStdlibRandomEngine;
 class EvtParticle;
 class TLorentzVector;
