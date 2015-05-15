@@ -17,7 +17,7 @@
 #include "StMessMgr.h"
 #include "StarEvtGenDecayer.h"
 
-StarEvtGenDecayer::StarEvtGenDecayer(EvtGen* evtGen): mEvtGenRandomEngine(NULL), mEvtGen(NULL), mParticle(NULL), mOwner(false)
+StarEvtGenDecayer::StarEvtGenDecayer(EvtGen* evtGen): mEvtGenRandomEngine(NULL), mEvtGen(evtGen), mParticle(NULL), mOwner(false)
 {
   if(mEvtGen) return; // trust that mEvtGen is properly initialized by the user
 
@@ -74,6 +74,8 @@ Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
    Int_t nparts = 0;
    for (Int_t i = 0; i < mParticle->getNDaug(); i++)
    {
+     // Need to check with Jason what units to return for the position. 
+     // also the status and mothers codes
       new(array[nparts++]) TParticle(
          EvtPDL::getLundKC(mParticle->getDaug(i)->getId()), // PDG ID
          -999,
