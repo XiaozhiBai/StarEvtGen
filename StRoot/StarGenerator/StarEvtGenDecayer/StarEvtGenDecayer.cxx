@@ -90,22 +90,23 @@ Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
 }
 void StarEvtGenDecayer::SetForceDecay(Int_t type)
 {
-   assert(0);
+   LOG_ERROR << "StarEvtGenDecayer::SetForceDecay method is not implemented in this class" <<endm;
 }
 
 void StarEvtGenDecayer::ForceDecay()
 {
-   assert(0);
+   LOG_ERROR << "StarEvtGenDecayer::ForceDecay method is not implemented in this class" <<endm;
 }
 Float_t StarEvtGenDecayer::GetPartialBranchingRatio(Int_t ipart)
 {
-   assert(0);
+   LOG_ERROR << "StarEvtGenDecayer::GetPartialBranchingRatio method is not implemented in this class" <<endm;
 }
 void StarEvtGenDecayer::ReadDecayTable()
 {
-   assert(0);
+   LOG_ERROR << "StarEvtGenDecayer::ReadDecayTable method is not implemented in this class" <<endm;
 }
 Float_t StarEvtGenDecayer::GetLifetime(Int_t pdg)
 {
+   LOG_ERROR << "StarEvtGenDecayer::GetLifetime method is not implemented in this class" <<endm;
    return 1.0;
 }
