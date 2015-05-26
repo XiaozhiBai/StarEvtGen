@@ -2,3 +2,5 @@
 *.pdf
 *.png
 *.o
+.sl*
+temp_gccflags.c
