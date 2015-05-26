@@ -1,6 +1,6 @@
 ###Authors:  
   Xiaozhi Bai (xiaozhi@uic.edu)  
-  Mustafa Mustafa (mmustafa@lbl.gov),
+  Mustafa Mustafa (mmustafa@lbl.gov),  
   Zhenyu Ye       (yezhenyu2003@gmail.com)
 
 ###How to run EvtGen external decayer class in STAR(RCF)  
