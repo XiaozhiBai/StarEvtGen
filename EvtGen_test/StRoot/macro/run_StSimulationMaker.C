@@ -1,4 +1,4 @@
-void run_StSimulationMaker(int parent_pdg=421,int NEvent=2000000,TString outfile="test_production.root")
+void run_StSimulationMaker(int parent_pdg=421,int NEvent=20,TString outfile="test_production.root")
 {
    std::cout<< outfile<<std::endl;
    gROOT->LoadMacro("$STAR/StRoot/StMuDSTMaker/COMMON/macros/loadSharedLibraries.C");
