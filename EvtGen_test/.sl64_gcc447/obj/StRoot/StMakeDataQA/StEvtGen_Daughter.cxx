@@ -1,0 +1,1 @@
+../../../../StRoot/StMakeDataQA/StEvtGen_Daughter.cxx

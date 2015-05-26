@@ -1,0 +1,21 @@
+#
+Decay omega
+1. pi0     e+      e-                              PHOTOS PHSP; #[Reconstructed PDG2011]
+#
+Enddecay
+#
+Decay phi
+1. pi0     e+      e-                             PHSP;  #[New mode added] #[Reconstructed PDG2011]
+#
+Enddecay
+#
+Decay pi0
+#
+1. e+      e-      gamma                           PI0_DALITZ; #[Reconstructed PDG2011]
+#
+Enddecay
+#
+Decay eta
+1.0 gamma   e+      e-                              PYTHIA; #[Reconstructed PDG2011]
+Enddecay
+End
