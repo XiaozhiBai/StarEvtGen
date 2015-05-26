@@ -4,3 +4,4 @@
 *.o
 .sl*
 temp_gccflags.c
+.consign
