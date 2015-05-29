@@ -53,6 +53,7 @@ void StarEvtGenDecayer::Init()
 void StarEvtGenDecayer::Decay(int pdgId, TLorentzVector*_p)
 {
    EvtVector4R p_init(_p->E(), _p->Px(), _p->Py(), _p->Pz());
+   r_init.set(0,0,0,0);// Reset the postion for mother particle,Default is(0,0,0,0) 
 
    EvtId parentID = EvtPDL::evtIdFromLundKC(pdgId);
 
@@ -89,10 +90,10 @@ Int_t StarEvtGenDecayer::ImportParticles(TClonesArray* particles)
          mParticle->getDaug(i)->getP4Lab().get(2),
          mParticle->getDaug(i)->getP4Lab().get(3),
          mParticle->getDaug(i)->getP4Lab().get(0),
-         mParticle->getDaug(i)->get4Pos().get(1), // mm
-         mParticle->getDaug(i)->get4Pos().get(2),
-         mParticle->getDaug(i)->get4Pos().get(3),
-         mParticle->getDaug(i)->get4Pos().get(0));
+         r_init.get(1)+mParticle->getDaug(i)->get4Pos().get(1), // mm
+         r_init.get(2)+mParticle->getDaug(i)->get4Pos().get(2),
+         r_init.get(3)+mParticle->getDaug(i)->get4Pos().get(3),
+         r_init.get(0)+mParticle->getDaug(i)->get4Pos().get(0));
    }
 
    return nparts;

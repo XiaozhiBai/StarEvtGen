@@ -36,14 +36,17 @@ class StarEvtGenDecayer : public TVirtualMCDecayer
    virtual Float_t GetLifetime(Int_t pdgid);
    virtual void ReadDecayTable();
 
+   void setVertex(TLorentzVector* r);
    void setDecayTable(TString decayTable);
 
   private:
    EvtStdlibRandomEngine* mEvtGenRandomEngine;
    EvtGen* mEvtGen;
    EvtParticle* mParticle;
+   EvtVector4R r_init;
    bool   mOwner;
 };
 
 inline void StarEvtGenDecayer::setDecayTable(TString decayTable) { mEvtGen->readUDecay(decayTable); }
+inline void StarEvtGenDecayer::setVertex(TLorentzVector* r) {r_init.set(r->T(),r->X(),r->Y(),r->Z()); }
 #endif
