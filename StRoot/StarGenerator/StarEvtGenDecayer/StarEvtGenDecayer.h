@@ -4,7 +4,8 @@
    \brief STAR wrapper for EvtGen Decayer
 
    Authors: Xiaozhi Bai (xiaozhi@uic.edu),
-            Mustafa Mustafa (mmustafa@lbl.gov)
+            Mustafa Mustafa (mmustafa@lbl.gov),
+            Zhenyu Ye       (yezhenyu2003@gmail.com)
 */
 
 #ifndef StarEvtGenDecayer__h
