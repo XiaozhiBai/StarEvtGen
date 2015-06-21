@@ -3,6 +3,10 @@
   Mustafa Mustafa (mmustafa@lbl.gov),  
   Zhenyu Ye       (yezhenyu2003@gmail.com)
 
+### Presentations:  
+#### STAR Protected:  
+- [EvtGen As External Decayer in StarSim](https://www.star.bnl.gov/protected/heavy/xiao00/Run14/STAR_S_C_meeting_6_10.pdf), Xiaozhi, S<&amp;>C , 2015-06-10.  
+
 ###How to use EvtGen external decayer class in STAR(RCF)  
 
 To setup your directory:  
